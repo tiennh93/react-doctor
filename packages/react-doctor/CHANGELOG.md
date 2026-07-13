@@ -1,5 +1,29 @@
 # react-doctor
 
+## 0.8.0
+
+### Minor Changes
+
+- [#1186](https://github.com/millionco/react-doctor/pull/1186) [`0a8d30b`](https://github.com/millionco/react-doctor/commit/0a8d30b6df0a6b8336cee7ea1e30a18441a1780a) Thanks [@aidenybai](https://github.com/aidenybai)! - Add `--include-untracked` to fold ordinary (non-ignored) untracked files into the `files`, `changed`, and `lines` scopes. Off by default, so the existing scopes are unchanged; Git ignore rules are always respected. The flag requires one of those working-tree scopes — it errors when no scope (or `--scope full`/`--staged`) is set.
+
+### Patch Changes
+
+- [#1173](https://github.com/millionco/react-doctor/pull/1173) [`eb09902`](https://github.com/millionco/react-doctor/commit/eb09902290462cbffa254fb2e9abcb817a33a05e) Thanks [@aidenybai](https://github.com/aidenybai)! - Recognize React dependencies in UTF-8 BOM-prefixed package manifests.
+
+- [#1165](https://github.com/millionco/react-doctor/pull/1165) [`82e10cd`](https://github.com/millionco/react-doctor/commit/82e10cdc5c897069fa0fed0d124376d831109e48) Thanks [@aidenybai](https://github.com/aidenybai)! - Prevent CLI and editor caches from replaying diagnostics after equal-metadata content changes.
+
+- [#1168](https://github.com/millionco/react-doctor/pull/1168) [`e026a23`](https://github.com/millionco/react-doctor/commit/e026a23c30265c84847d8deb9a08db9da6d8559b) Thanks [@aidenybai](https://github.com/aidenybai)! - Scan supported non-JSX JavaScript and TypeScript modules in partial and explicit-path scans.
+
+- [#1187](https://github.com/millionco/react-doctor/pull/1187) [`1fa3a20`](https://github.com/millionco/react-doctor/commit/1fa3a209072f9d59889eead4de507f631ebcc4ea) Thanks [@aidenybai](https://github.com/aidenybai)! - Reject staged scans when configuration differs between the Git index and worktree, preventing mixed-snapshot false positives and false negatives.
+
+- [#1185](https://github.com/millionco/react-doctor/pull/1185) [`115fccf`](https://github.com/millionco/react-doctor/commit/115fccf2666bd78a4d7de332a9ce8599ed4f0373) Thanks [@aidenybai](https://github.com/aidenybai)! - Exit nonzero when the lint pass hard-fails (a configured plugin or engine failure) instead of silently reporting a clean scan. Routine code-less diagnostics (unparseable files, unused-directive warnings) no longer reject the whole lint pass, fail-open degradations (`--no-lint`, `--max-duration` truncation, supply-chain/security skips) stay advisory, and `--blocking none` keeps the scan advisory.
+
+- [#1171](https://github.com/millionco/react-doctor/pull/1171) [`f215ace`](https://github.com/millionco/react-doctor/commit/f215aced22c1bb733662e809dd4b437699b2715b) Thanks [@aidenybai](https://github.com/aidenybai)! - Keep diagnostics whose multiline source spans intersect changed lines in line-scoped scans.
+
+- Updated dependencies [[`8528def`](https://github.com/millionco/react-doctor/commit/8528deff881314adaf72bb17da1f1dabdcf58b5c), [`dfd47a7`](https://github.com/millionco/react-doctor/commit/dfd47a75a29f36df2b6799d57ef9695a7174b3f6), [`0150fc9`](https://github.com/millionco/react-doctor/commit/0150fc901cd5d85c5631e975510d51e48372bdde), [`4fb3694`](https://github.com/millionco/react-doctor/commit/4fb3694e186db0287cc0d49f72a44a38ad63a26e), [`a8cd24e`](https://github.com/millionco/react-doctor/commit/a8cd24e2fedbd6c9697266b09e92e9b685d07abf), [`778f1a2`](https://github.com/millionco/react-doctor/commit/778f1a2cc4a2be3863e79236db143677ae4192e1), [`37c53d6`](https://github.com/millionco/react-doctor/commit/37c53d6ebf607a9b3942314cdc13700a876cefcc), [`8ee2977`](https://github.com/millionco/react-doctor/commit/8ee2977e174f0b1dd46554eea785cba853ff2207), [`c5a06bd`](https://github.com/millionco/react-doctor/commit/c5a06bd8c0d5ade974549326b9131fa9b6ae8e6e), [`1f14fa1`](https://github.com/millionco/react-doctor/commit/1f14fa1bf33530e46e900780d606d246c71da8b0), [`0d11bd5`](https://github.com/millionco/react-doctor/commit/0d11bd54717cc61fff2341eb0a3b1d25d4f645ad), [`d674163`](https://github.com/millionco/react-doctor/commit/d6741631233fe3622ff165740f1c260635abfa18), [`64950ba`](https://github.com/millionco/react-doctor/commit/64950ba2879e7ccd11ee1a6599d1474992c22558), [`4753290`](https://github.com/millionco/react-doctor/commit/4753290a1ce3d1aadbe8fec11a7296fd575e9350), [`c6f996e`](https://github.com/millionco/react-doctor/commit/c6f996ec0183f34bff7fd99593028c15d91f0634), [`1d7b6e2`](https://github.com/millionco/react-doctor/commit/1d7b6e2887c8478df738d21e1422daac51ffb334), [`8c9a6c4`](https://github.com/millionco/react-doctor/commit/8c9a6c49ab09beabaf8fc47f406ffb9f29a95b34), [`79105a3`](https://github.com/millionco/react-doctor/commit/79105a3b97238d2db1b4011cf7774c8c8b592253), [`81e6647`](https://github.com/millionco/react-doctor/commit/81e6647f3c4c0dbc90881b199753a9d341cf7963), [`fbd85e3`](https://github.com/millionco/react-doctor/commit/fbd85e388c12e6d8ea2c2fcf2e9d8405379dd245), [`b550b32`](https://github.com/millionco/react-doctor/commit/b550b327ece611503d0565c3d1a9cf0f8e3c7246), [`47beb25`](https://github.com/millionco/react-doctor/commit/47beb255f228eef2386e0ecd61a0b122d366ac09), [`acf14c4`](https://github.com/millionco/react-doctor/commit/acf14c4fc9774f53a82a7394cd50e09f02a9e7d6), [`b36e439`](https://github.com/millionco/react-doctor/commit/b36e439c26a81b20ede762fdc2f32d50968c7ff3)]:
+  - oxlint-plugin-react-doctor@0.8.0
+  - deslop-js@0.8.0
+
 ## 0.7.6
 
 ### Patch Changes
